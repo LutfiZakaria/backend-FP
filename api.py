@@ -7,8 +7,8 @@ from configs import api
 from resourceMerchant import MerchantResources
 from resourceLogin import LoginResources
 from resourceItem import ItemResources
-############## Finish Style ##################
-
+from resourceTransaction import TransactionResources
+from resourceTransactionDetail import TransactionDetailResources
 
 ############## Finish import resources ##################
 
@@ -17,6 +17,8 @@ from resourceItem import ItemResources
 api.add_resource(MerchantResources, "/api/merchant", "/api/merchant/<int:id>")
 api.add_resource(LoginResources, "/api/merchant/login")
 api.add_resource(ItemResources, "/api/merchant/item", "/api/merchant/item/<int:id>")
+api.add_resource(TransactionResources, "/api/merchant/trx", "/api/merchant/trx/<int:id>")
+api.add_resource(TransactionDetailResources, "/api/merchant/trx_detail", "/api/merchant/trx_detail/<int:id>")
 
 ################# Finished Endpoint ################
 

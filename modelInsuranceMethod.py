@@ -9,7 +9,7 @@ class InsuranceMethod(db.Model):
     created_at = db.Column(db.DateTime, default= db.func.current_timestamp())
     updated_at = db.Column(db.DateTime, default= db.func.current_timestamp())
     #Relationship to another Table
-    transaction = db.relationship("Transactions", backref="shipmentmethod", lazy=True)
+    transaction = db.relationship("Transactions", backref="insurancemethod", lazy=True)
 
     def __repr__(self):
         return "<InsuranceMethod %r>" % self.id
