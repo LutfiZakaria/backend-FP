@@ -9,7 +9,8 @@ from resourceLogin import LoginResources
 from resourceItem import ItemResources
 from resourceTransaction import TransactionResources
 from resourceTransactionDetail import TransactionDetailResources
-
+from resourceGeneralRuleInfo import GeneralRuleInfoResources
+from resourceRulesItem import RulesItemResources
 ############## Finish import resources ##################
 
 
@@ -19,7 +20,8 @@ api.add_resource(LoginResources, "/api/merchant/login")
 api.add_resource(ItemResources, "/api/merchant/item", "/api/merchant/item/<int:id>")
 api.add_resource(TransactionResources, "/api/merchant/trx", "/api/merchant/trx/<int:id>")
 api.add_resource(TransactionDetailResources, "/api/merchant/trx_detail", "/api/merchant/trx_detail/<int:id>")
-
+api.add_resource(GeneralRuleInfoResources, "/api/merchant/general", "/api/merchant/generalrule/<int:id>")
+api.add_resource(RulesItemResources, "/api/merchant/ruleitem", "/api/merchant/ruleitem/<int:id>")
 ################# Finished Endpoint ################
 
 if __name__ == '__main__':

@@ -63,77 +63,28 @@ transactiondetail_fields = {
     "updated_at": fields.DateTime(dt_format='rfc822')
 }
 
-po_fields = {
+rulesitem_fields = {
     "id": fields.Integer,
-    "supplierID": fields.Integer,
-    "suppliers.name": fields.String,
-    "userPOID": fields.Integer,
-    "packagePOID": fields.Integer,
-    "packages.Items.item":fields.String,
-    "packages.package_name": fields.String,
-    "packages.Category.category":fields.String,
-    "quantity": fields.Integer,
-    "buyingPricePerPackage": fields.Float,
-    "totalPrice": fields.Float,
-    "notes" : fields.String,
-    "status":fields.Boolean,
+    "merchant_id": fields.Integer,
+    "item_id": fields.Integer,
+    "supplier_type": fields.Integer,
+    "supplier_amount":fields.Float,
+    "supplier_bank_name":fields.String,
+    "supplier_bank_account_number":fields.String,
+    "supplier_bank_account_name":fields.String,
     "created_at": fields.DateTime(dt_format='rfc822'),
     "updated_at": fields.DateTime(dt_format='rfc822')
 }
 
-sale_fields = {
+general_fields = {
     "id": fields.Integer,
-    "userSalesID": fields.Integer,
-    "customerSalesID": fields.Integer,
-    "customers.fullname": fields.String,
-    "packageSalesID": fields.Integer,
-    "packages.Items.item":fields.String,
-    "packages.package_name": fields.String,
-    "packages.Category.category":fields.String,
-    "quantity": fields.Integer,
-    "sellingPricePerPackage": fields.Float,
-    "totalPrice":fields.Float,
-    "status": fields.Boolean,
+    "merchant_id": fields.Integer,
+    "tax_type":fields.Integer,
+    "tax_amount":fields.Float,
+    "gov_bank_account_number":fields.String,
+    "marketplace_fee_type":fields.Integer,
+    "marketplace_fee_amount":fields.Float,
+    "marketplace_fee_bank_account_number": fields.String,
     "created_at": fields.DateTime(dt_format='rfc822'),
     "updated_at": fields.DateTime(dt_format='rfc822')
-}
-
-actualstock_fields = {
-    "id": fields.Integer,
-    "userActualStocksID": fields.Integer,
-    "packageActualStocksID": fields.Integer,
-    "actual_stock": fields.Integer,
-    "packages.package_name": fields.String,
-    "packages.Items.item":fields.String,
-    "notes": fields.String,
-    "status": fields.Boolean,
-    "created_at": fields.DateTime(dt_format='rfc822'),
-    "updated_at": fields.DateTime(dt_format='rfc822')
-}
-
-packagetrack_fields = {
-    "id": fields.Integer,
-    "POID": fields.Integer,
-    "salesID": fields.Integer,
-    "packageID": fields.Integer,
-    "packages.Items.item":fields.String,
-    "packages.package_name":fields.String,
-    "code": fields.String,
-    "status": fields.Boolean,
-    "created_at": fields.DateTime(dt_format='rfc822'),
-    "updated_at": fields.DateTime(dt_format='rfc822')
-}
-
-subuser_fields = {
-    "id": fields.Integer,
-    "userID": fields.Integer,
-    "fullname": fields.String,
-    "email": fields.String,
-    "username": fields.String,
-    "apiKey": fields.String,
-    "phone_number": fields.String,
-    "subuser_type": fields.String,
-    "status": fields.Boolean,
-    "created_at": fields.String,
-    "updated_at": fields.String
 }
