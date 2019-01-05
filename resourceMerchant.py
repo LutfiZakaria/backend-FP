@@ -11,11 +11,11 @@ from modelMerchant import Merchant
 
 ####### Tempat import Marshal#########
 from marshalField import merchant_fields
+from marshalField import merchantfull_fields
 ####### Finish import Marshal#########
 
 
 class MerchantResources(Resource):
-
     # Untuk register user
     def post(self):
         parser = reqparse.RequestParser()
@@ -48,11 +48,15 @@ class MerchantResources(Resource):
 
     # untuk edit profil user
     @jwt_required
-    def put(self, id):
+    def put(self, id=None):
         parser = reqparse.RequestParser()
         parser.add_argument('fullname', type = str, help='fullname must be string type', location='json')
         parser.add_argument('password', type = str, help='password must be string type', location='json')
         parser.add_argument('email', type = str, help='email must be string type', location='json')
+        parser.add_argument('address', type = str, help='address must be string type', location='json')
+        parser.add_argument('bank_name', type = str, help='bank_name must be string type', location='json')
+        parser.add_argument('bank_account', type = str, help='bank_account must be string type', location='json')
+        parser.add_argument('bank_account_name', type = str, help='bank_account_name must be string type', location='json')
         args = parser.parse_args()
 
         my_identity = get_jwt_identity()
@@ -62,7 +66,7 @@ class MerchantResources(Resource):
         if qry == None :
             return {'message': 'merchant not found'}, 404
 
-        qry2 = Users.query.filter_by(email = args["email"]).first()        
+        qry2 = Merchant.query.filter_by(email = args["email"]).first()        
 
         if qry2 != None:
             return {"message": "email has been used"}, 400
@@ -74,14 +78,22 @@ class MerchantResources(Resource):
                 qry.password= generate_password_hash(args["password"]),
             if args["email"] != None:
                 qry.email= args["email"]
+            if args["address"] != None:
+                qry.address= args["address"]
+            if args["bank_name"] != None:
+                qry.bank_name= args["bank_name"]
+            if args["bank_account"] != None:
+                qry.bank_account = (args["bank_account"]),
+            if args["bank_account_name"] != None:
+                qry.bank_account_name= args["bank_account_name"]
 
             qry.updated_at = db.func.current_timestamp()
                     
             db.session.add(qry)
             db.session.commit()
             return {
-                "message": "edit profil success",
-                "product": marshal(qry, merchant_fields)
+                "message": "edit merchant success",
+                "product": marshal(qry, merchantfull_fields)
             } ,200
 
     @jwt_required
@@ -108,7 +120,7 @@ class MerchantResources(Resource):
         rows = []
 
         for row in qry.all():
-            rows.append(marshal(row, merchant_fields))
+            rows.append(marshal(row, merchantfull_fields))
 
         if rows == []:
             return {'message': 'Merchant not found'}, 404
