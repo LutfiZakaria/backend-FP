@@ -9,59 +9,30 @@ merchant_fields = {
     "updated_at": fields.DateTime(dt_format='rfc822')
 }
 
+merchantfull_fields = {
+    "id": fields.Integer,
+    "fullname": fields.String, 
+    "email": fields.String,
+    "bank_name": fields.String,
+    "bank_account": fields.String,
+    "bank_account_name": fields.String,
+    "address":fields.String,
+    "status":fields.Boolean,
+    "created_at": fields.DateTime(dt_format='rfc822'),
+    "updated_at": fields.DateTime(dt_format='rfc822')
+}
+
+
 item_fields = {
     "id":fields.Integer,
-    "userID":fields.Integer,
-    "catID": fields.Integer,
-    "Category.category": fields.String,
-    "item":fields.String,
-    "picture":fields.String,
-    "size":fields.Integer,
-    "unit":fields.String,
-    "SKU":fields.Integer,
-    "status":fields.Boolean,
+    "merchant_id":fields.Integer,
+    "item_name":fields.String,
+    "item_price":fields.Float,
     "created_at": fields.DateTime(dt_format='rfc822'),
     "updated_at": fields.DateTime(dt_format='rfc822')
 }
 
-category_fields = {
-    "id":fields.Integer,
-    "userID":fields.Integer,
-    "category": fields.String,
-    "status":fields.Boolean,
-    "created_at": fields.DateTime(dt_format='rfc822'),
-    "updated_at": fields.DateTime(dt_format='rfc822')
-}
-
-package_fields = {
-    "id": fields.Integer,
-    "itemID": fields.Integer,
-    "package_name": fields.String,
-    "Items.item": fields.String,
-    "Items.Category.category": fields.String,
-    "items_quantity": fields.Integer,
-    "status": fields.Boolean,
-    "created_at": fields.String,
-    "updated_at": fields.String,
-    "Users.fullname": fields.String,
-    "Category.category": fields.String,
-}
-
-supplier_fields = {
-    "id": fields.Integer,
-    "userSuppliersID": fields.Integer,
-    "name" : fields.String,
-    "phone_number" : fields.String,
-    "email" : fields.String,
-    "address" : fields.String,
-    "city" : fields.String,
-    "state" : fields.String,
-    "zipcode" : fields.String,
-    "created_at": fields.DateTime(dt_format='rfc822'),
-    "updated_at": fields.DateTime(dt_format='rfc822')
-}
-
-customer_fields = {
+transaction_fields = {
     "id": fields.Integer,
     "userCustomerID": fields.Integer,
     "fullname": fields.String,

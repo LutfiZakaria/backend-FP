@@ -5,19 +5,19 @@ from configs import api
 
 ###### Tempat Untuk Import Resource #########
 from resourceMerchant import MerchantResources
+from resourceLogin import LoginResources
+from resourceItem import ItemResources
 ############## Finish Style ##################
 
-# Import resource untuk api subusers
 
 ############## Finish import resources ##################
 
 
 ######### Tempat untuk Membuat Endpoint ################
-api.add_resource(MerchantResources, "/api/merchant/<int:id>, /api/merchant/")
+api.add_resource(MerchantResources, "/api/merchant", "/api/merchant/<int:id>")
+api.add_resource(LoginResources, "/api/merchant/login")
+api.add_resource(ItemResources, "/api/merchant/item", "/api/merchant/item/<int:id>")
 
-# api.add_resource(PackageTrackDetail, "/api/users/track", "/api/users/track/<int:id>")
-# api.add_resource()
-# Endpoint untuk api subusers
 ################# Finished Endpoint ################
 
 if __name__ == '__main__':

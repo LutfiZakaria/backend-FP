@@ -13,9 +13,6 @@ class RulesItem(db.Model):
     created_at = db.Column(db.DateTime, default= db.func.current_timestamp())
     updated_at = db.Column(db.DateTime, default= db.func.current_timestamp())
     # relationship
-    rulesItem = db.relationship("RulesItem", backref="merchant", lazy=True)
-    generalRuleInfo = db.relationship("GeneralRuleInfo", backref="merchant", lazy=True)
-    Item = db.relationship("Item", backref="merchant", lazy=True)
     
     def __repr__(self):
         return "<RulesItem %r>" % self.id

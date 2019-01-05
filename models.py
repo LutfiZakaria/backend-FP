@@ -8,6 +8,8 @@ from modelMerchant import Merchant
 from modelItem import Item
 from modelRulesItem import RulesItem
 from modelPaymentMethod import PaymentMethod
+from modelInsuranceMethod import InsuranceMethod
+from modelShipmentMethod import ShipmentMethod
 from modelTransaction import Transactions
 from modelTransactionDetail import TransactionDetail
 from modelGeneralRuleInfo import GeneralRulesInfo
