@@ -10,10 +10,10 @@ import json
 
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://appware@appware.cqca0rvctn3a.ap-southeast-1.rds.amazonaws.com:3306/appware'
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://appware:password@appware.cqca0rvctn3a.ap-southeast-1.rds.amazonaws.com/appware"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:rootpass1234@reconengine.cldtouwshewk.ap-southeast-1.rds.amazonaws.com/root"
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:020601@127.0.0.1/AppWare'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['JWT_SECRET_KEY'] = 'AppwareSecretKey'
+app.config['JWT_SECRET_KEY'] = 'ReconEngineSecretKey'
 CORS(app)
 api = Api(app)
 jwt = JWTManager(app)
@@ -22,8 +22,6 @@ from models import db
 migrate = Migrate(app,db)
 manager = Manager(app)
 manager.add_command('db', MigrateCommand)
-
-from modelUsers import Users
 
 @jwt.expired_token_loader
 def exipred_token_message():
@@ -40,9 +38,3 @@ def add_claims(identity) :
 @jwt.unauthorized_loader
 def unathorized_message(error_string):
     return json.dumps({'message': error_string}), 401, {'Content-Type': 'application/json'}
-
-# Page Untuk Halaman Home
-
-# @app.route("/")
-# def webprint():
-#     return render_template('docs/index.html')

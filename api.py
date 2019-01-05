@@ -4,7 +4,7 @@ from configs import manager
 from configs import api
 
 ###### Tempat Untuk Import Resource #########
-
+from resourceMerchant import MerchantResources
 ############## Finish Style ##################
 
 # Import resource untuk api subusers
@@ -13,9 +13,9 @@ from configs import api
 
 
 ######### Tempat untuk Membuat Endpoint ################
+api.add_resource(MerchantResources, "/api/merchant/<int:id>, /api/merchant/")
 
-
-api.add_resource(PackageTrackDetail, "/api/users/track", "/api/users/track/<int:id>")
+# api.add_resource(PackageTrackDetail, "/api/users/track", "/api/users/track/<int:id>")
 # api.add_resource()
 # Endpoint untuk api subusers
 ################# Finished Endpoint ################
